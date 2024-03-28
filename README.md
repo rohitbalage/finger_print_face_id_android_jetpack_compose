@@ -1,4 +1,4 @@
-  ### Finger print or face id  in Android Jetpack
+  ### Fingerprint or face id  in Android Jetpack
 
 This code depitcs how one can use finger print in Android app along with Android jetpack.
 
