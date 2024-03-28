@@ -61,12 +61,31 @@ class BiometricAuthenticator (
                 fragmentActivity,
                 object : BiometricPrompt.AuthenticationCallback()
                 {
+                    override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                        super.onAuthenticationSucceeded(result)
+                    }
 
+                    override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                        super.onAuthenticationError(errorCode, errString)
+                        onError(errorCode, errString.toString())
+                    }
+
+                    override fun onAuthenticationFailed() {
+                        super.onAuthenticationFailed()
+                        onFailed()
+                    }
                 }
             )
 
             }
         }
+
+        propmtInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle(title)
+            .setSubtitle(subTitle)
+            .setNegativeButtonText(negativeArraySizeException)
+            .build()
+            biometricPromt.authenticate(propmtInfo)
     }
 
 }
