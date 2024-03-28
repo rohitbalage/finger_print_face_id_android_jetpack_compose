@@ -31,7 +31,7 @@ class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val biometricAuthenticator = BiometricAuthenticator(this)
-        setContent {
+            setContent {
             FaeIdAndFigurePrintTheme {
 
              Column (modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center,
@@ -45,13 +45,13 @@ class MainActivity : FragmentActivity() {
                     biometricAuthenticator.promptBiometricAuth(
                         title = "Login ",
                         subTitle = "Use your figure print or face id",
-                        negativeArraySizeException = "cancle",
+                        negativeArraySizeException = "cancel",
                         fragmentActivity = activity,
                         onSuccess = {
                                 message = "Success"
                         },
                         onFailed = {
-                            message = "wrong fingure print or face id"
+                            message = "wrong finger print or face id"
                         },
                         onError = { _, error ->
                             {
@@ -63,7 +63,7 @@ class MainActivity : FragmentActivity() {
 
 
                 }) {
-                    Text(text = "Login with figureprint or face id")
+                    Text(text = "Login with fingerprint or face id")
                 }
                  Spacer(modifier = Modifier.height(10.dp))
                  Text(text = message)
